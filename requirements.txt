@@ -1,0 +1,2 @@
+# For testing purposes only.
+trove_classifiers==2022.1.6 --hash c9a0bb88579bf30fbe6d91cdf41906a9e3da59dbe61f88e40b44355a146847b9
