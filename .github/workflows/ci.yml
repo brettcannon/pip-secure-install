@@ -8,6 +8,7 @@ on:
 
 jobs:
   test-default-inputs:
+    name: "test default inputs"
     runs-on: ubuntu-latest
 
     steps:
