@@ -1,6 +1,9 @@
 name: "pip-secure-install"
 description: "Have pip install from a requirements file as securely as possible"
 author: "Brett Cannon"
+branding:
+  icon: "package"
+  color: "green"
 inputs:
   python:
     description: "Command to run Python"
