@@ -1,0 +1,20 @@
+name: "pip-secure-install"
+description: "Have pip install from a requirements file as securely as possible"
+author: "Brett Cannon"
+inputs:
+  python:
+    description: "Command to run Python"
+    required: true
+    default: "python"
+  requirements-file:
+    description: "Path to a requirements file"
+    required: true
+    default: "requirements.txt"
+  options:
+    description: "Extra CLI options"
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - run: "${{ inputs.python }} -m pip install --no-deps --require-hashes --only-binary :all: ${{ inputs.options }} -r ${{ inputs.requirements-file }}"
+      shell: bash
