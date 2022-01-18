@@ -37,10 +37,47 @@ jobs:
         with:
           python-version: "3.9"
 
-      - name: Default inputs
+      - name: Specify `python`
         uses: ./
         with:
           python: "python3.9"
 
       - name: Test results
         run: python3.9 -c "import trove_classifiers"
+
+  test-requirements-file:
+    name: "test `requirements-file`"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+
+      - name: Specify `requirements-file`
+        uses: ./
+        with:
+          requirements-file: "requirements.txt"
+
+      - name: Test results
+        run: python -c "import trove_classifiers"
+
+  test-options:
+    name: "test `options`"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+
+      - name: Specify `options`
+        uses: ./
+        with:
+          options: "--target install-target"
+
+      - name: Test results
+        run: |
+          cd install-target
+          test -d trove_classifiers
+          python -c "import trove_classifiers"
