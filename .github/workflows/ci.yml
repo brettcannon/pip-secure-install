@@ -22,3 +22,25 @@ jobs:
       - name: Test results
         run: python -c "import trove_classifiers"
 
+  test-python:
+    name: "test `python`"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Default inputs
+        uses: ./
+        with:
+          python: "python3.9"
+
+      - name: Test results
+        run: python3.9 -c "import trove_classifiers"
